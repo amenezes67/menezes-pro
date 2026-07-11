@@ -401,6 +401,35 @@
             font-weight: 600;
         }
 
+        @media (min-width: 901px) {
+            .page {
+                width: min(1480px, calc(100% - 64px));
+            }
+
+            main {
+                padding: 30px 0;
+            }
+
+            .hero {
+                padding: clamp(72px, 8vw, 132px) clamp(28px, 6vw, 96px);
+            }
+
+            h1 {
+                max-width: 1120px;
+                font-size: clamp(3.2rem, 9.6vw, 8.8rem);
+            }
+
+            .lead {
+                max-width: 700px;
+                font-size: clamp(1rem, 1.9vw, 1.4rem);
+            }
+
+            .area-card {
+                min-height: 190px;
+                padding: 30px 28px 28px;
+            }
+        }
+
         @media (max-width: 900px) {
             .site-header {
                 min-height: 118px;
