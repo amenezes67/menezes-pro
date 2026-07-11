@@ -123,18 +123,13 @@
         .brand {
             display: inline-flex;
             align-items: center;
-            gap: 14px;
-            font-size: 1.15rem;
-            font-weight: 700;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
         }
 
         .brand-logo {
             display: block;
-            width: min(190px, 20vw);
-            height: auto;
-            filter: invert(1);
+            width: auto;
+            height: 56px;
+            object-fit: contain;
         }
 
         .language-selector {
@@ -406,6 +401,10 @@
         }
 
         @media (max-width: 900px) {
+            .brand-logo {
+                height: 48px;
+            }
+
             .areas {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -420,12 +419,8 @@
                 min-height: 82px;
             }
 
-            .brand {
-                font-size: 1.15rem;
-            }
-
-            .brand-mark {
-                font-size: 0.72rem;
+            .brand-logo {
+                height: 38px;
             }
 
             .language-selector {
@@ -466,8 +461,11 @@
 
         <header class="site-header">
             <a class="brand" href="/" aria-label="Menezes.PRO home">
-                <span class="brand-mark" role="img" aria-label="Menezes.PRO logo placeholder">M.PRO</span>
-                <span>Menezes<span class="brand-domain">.PRO</span></span>
+                <img
+                    class="brand-logo"
+                    src="assets/img/logo transp white.png"
+                    alt="Menezes.PRO corporate logo"
+                >
             </a>
 
             <nav
