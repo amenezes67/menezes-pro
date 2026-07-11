@@ -112,11 +112,12 @@
         }
 
         .site-header {
-            min-height: 104px;
+            min-height: 142px;
             display: flex;
             align-items: center;
             justify-content: space-between;
             gap: 24px;
+            padding: 18px 0;
             border-bottom: 1px solid var(--surface-border);
         }
 
@@ -127,8 +128,8 @@
 
         .brand-logo {
             display: block;
-            width: auto;
-            height: 56px;
+            width: clamp(280px, 25vw, 340px);
+            height: auto;
             object-fit: contain;
         }
 
@@ -401,8 +402,12 @@
         }
 
         @media (max-width: 900px) {
+            .site-header {
+                min-height: 118px;
+            }
+
             .brand-logo {
-                height: 48px;
+                width: 260px;
             }
 
             .areas {
@@ -416,11 +421,12 @@
             }
 
             .site-header {
-                min-height: 82px;
+                min-height: 96px;
+                padding: 14px 0;
             }
 
             .brand-logo {
-                height: 38px;
+                width: min(210px, 62vw);
             }
 
             .language-selector {
@@ -463,7 +469,7 @@
             <a class="brand" href="/" aria-label="Menezes.PRO home">
                 <img
                     class="brand-logo"
-                    src="assets/img/logo transp white.png"
+                    src="assets/img/white wide invert.jpg"
                     alt="Menezes.PRO corporate logo"
                 >
             </a>
