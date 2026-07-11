@@ -65,15 +65,15 @@
 
     <style>
         :root {
-            --background: #0f172a;
-            --background-secondary: #111c33;
-            --surface: rgba(255, 255, 255, 0.06);
-            --surface-border: rgba(255, 255, 255, 0.12);
-            --text-primary: #f8fafc;
-            --text-secondary: #cbd5e1;
-            --text-muted: #94a3b8;
-            --accent: #38bdf8;
-            --accent-light: #7dd3fc;
+            --background: #000000;
+            --background-secondary: #101010;
+            --surface: rgba(255, 255, 255, 0.045);
+            --surface-border: rgba(255, 255, 255, 0.16);
+            --text-primary: #f4f3ef;
+            --text-secondary: #c2c1bc;
+            --text-muted: #858580;
+            --accent: #c6a76a;
+            --accent-light: #e3c88e;
         }
 
         * {
@@ -88,11 +88,10 @@
 
         body {
             min-height: 100vh;
-            background: #000000;
+            background: var(--background);
             color: var(--text-primary);
             font-family:
-                "Segoe UI",
-                Roboto,
+                "Helvetica Neue",
                 Helvetica,
                 Arial,
                 sans-serif;
@@ -105,7 +104,7 @@
         }
 
         .page {
-            width: min(1180px, calc(100% - 40px));
+            width: min(1280px, calc(100% - 64px));
             min-height: 100vh;
             margin: 0 auto;
             display: flex;
@@ -113,7 +112,7 @@
         }
 
         .site-header {
-            min-height: 96px;
+            min-height: 104px;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -124,19 +123,20 @@
         .brand {
             display: inline-flex;
             align-items: center;
-            gap: 12px;
-            font-size: 1.45rem;
+            gap: 14px;
+            font-size: 1.15rem;
             font-weight: 700;
-            letter-spacing: -0.02em;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
         }
 
         .brand-mark {
             display: inline-flex;
             align-items: center;
             color: var(--accent-light);
-            font-size: 0.82rem;
+            font-size: 0.74rem;
             font-weight: 800;
-            letter-spacing: 0.12em;
+            letter-spacing: 0.16em;
         }
 
         .brand-domain {
@@ -146,17 +146,18 @@
         .language-selector {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 4px;
         }
 
         .language-selector a {
-            min-width: 42px;
-            padding: 7px 10px;
+            min-width: 38px;
+            padding: 8px 10px;
             border: 1px solid transparent;
-            border-radius: 8px;
-            color: var(--text-secondary);
-            font-size: 0.82rem;
+            border-radius: 0;
+            color: var(--text-muted);
+            font-size: 0.7rem;
             font-weight: 700;
+            letter-spacing: 0.12em;
             text-align: center;
             transition:
                 background 0.2s ease,
@@ -173,8 +174,8 @@
         }
 
         .language-selector .active {
-            border-color: rgba(56, 189, 248, 0.45);
-            background: rgba(56, 189, 248, 0.12);
+            border-color: var(--accent);
+            background: transparent;
             color: var(--accent-light);
         }
 
@@ -182,25 +183,28 @@
             flex: 1;
             display: flex;
             align-items: center;
-            padding: 72px 0;
+            padding: 48px 0;
         }
 
         .hero {
             position: relative;
             width: 100%;
-            min-height: min(760px, calc(100vh - 178px));
+            min-height: min(820px, calc(100vh - 152px));
             display: flex;
             align-items: center;
             overflow: hidden;
             isolation: isolate;
-            padding: clamp(64px, 9vw, 120px) clamp(24px, 5vw, 72px);
+            padding: clamp(72px, 10vw, 144px) clamp(28px, 7vw, 112px);
+            border: 1px solid rgba(255, 255, 255, 0.14);
         }
 
         .hero::after {
             position: absolute;
             z-index: -1;
             inset: 0;
-            background: rgba(0, 0, 0, 0.7);
+            background:
+                linear-gradient(90deg, rgba(0, 0, 0, 0.86) 0%, rgba(0, 0, 0, 0.66) 48%, rgba(0, 0, 0, 0.72) 100%),
+                rgba(0, 0, 0, 0.7);
             content: "";
         }
 
@@ -211,8 +215,8 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            filter: grayscale(1) saturate(0.45);
-            opacity: 0.85;
+            filter: grayscale(1) contrast(1.08) brightness(0.68);
+            opacity: 0.78;
             animation: hero-video-fade 1.8s ease both;
         }
 
@@ -228,30 +232,31 @@
             }
 
             to {
-                opacity: 0.85;
+                opacity: 0.78;
             }
         }
 
         .eyebrow {
-            margin-bottom: 18px;
+            margin-bottom: 24px;
             color: var(--accent-light);
-            font-size: 0.78rem;
+            font-size: 0.68rem;
             font-weight: 700;
-            letter-spacing: 0.15em;
+            letter-spacing: 0.24em;
             text-transform: uppercase;
         }
 
         h1 {
             max-width: 940px;
-            font-size: clamp(2.7rem, 7vw, 5.8rem);
-            line-height: 1.02;
-            letter-spacing: -0.055em;
+            font-size: clamp(3.2rem, 8vw, 7.2rem);
+            line-height: 0.94;
+            letter-spacing: -0.075em;
         }
 
         .hero-title {
             display: flex;
             flex-direction: column;
-            font-style: italic;
+            font-style: normal;
+            font-weight: 500;
         }
 
         .hero-title-line {
@@ -259,30 +264,32 @@
         }
 
         .lead {
-            max-width: 760px;
-            margin-top: 28px;
+            max-width: 600px;
+            margin-top: 36px;
             color: var(--text-secondary);
-            font-size: clamp(1.05rem, 2vw, 1.3rem);
+            font-size: clamp(1rem, 1.6vw, 1.18rem);
+            line-height: 1.65;
         }
 
         .hero-actions {
             display: flex;
             flex-wrap: wrap;
-            gap: 12px;
-            margin-top: 32px;
+            gap: 14px;
+            margin-top: 40px;
         }
 
         .hero-button {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            min-width: 156px;
-            padding: 13px 20px;
+            min-width: 164px;
+            padding: 14px 22px;
             border: 1px solid var(--accent);
-            border-radius: 999px;
-            font-size: 0.84rem;
+            border-radius: 2px;
+            font-size: 0.7rem;
             font-weight: 700;
-            letter-spacing: 0.04em;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
             transition:
                 background 0.2s ease,
                 border-color 0.2s ease,
@@ -298,7 +305,7 @@
 
         .hero-button-primary {
             background: var(--accent);
-            color: #020617;
+            color: #000000;
         }
 
         .hero-button-primary:hover,
@@ -320,17 +327,21 @@
         .areas {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 16px;
-            margin-top: 52px;
+            gap: 1px;
+            margin-top: 72px;
+            border-top: 1px solid var(--surface-border);
+            border-left: 1px solid var(--surface-border);
         }
 
         .area-card {
-            min-height: 152px;
-            padding: 24px;
-            border: 1px solid var(--surface-border);
-            border-radius: 16px;
-            background: var(--surface);
-            backdrop-filter: blur(8px);
+            min-height: 168px;
+            padding: 26px 24px 24px;
+            border: 0;
+            border-right: 1px solid var(--surface-border);
+            border-bottom: 1px solid var(--surface-border);
+            border-radius: 0;
+            background: rgba(0, 0, 0, 0.24);
+            backdrop-filter: blur(10px);
             transition:
                 transform 0.2s ease,
                 border-color 0.2s ease,
@@ -338,56 +349,61 @@
         }
 
         .area-card:hover {
-            transform: translateY(-4px);
-            border-color: rgba(56, 189, 248, 0.4);
-            background: rgba(255, 255, 255, 0.08);
+            transform: translateY(-2px);
+            border-color: var(--surface-border);
+            background: rgba(255, 255, 255, 0.07);
         }
 
         .area-number {
             display: block;
-            margin-bottom: 22px;
+            margin-bottom: 28px;
             color: var(--accent);
-            font-size: 0.78rem;
+            font-size: 0.66rem;
             font-weight: 700;
-            letter-spacing: 0.1em;
+            letter-spacing: 0.16em;
         }
 
         .area-card h2 {
-            margin-bottom: 8px;
-            font-size: 1.05rem;
+            margin-bottom: 10px;
+            font-size: 0.98rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
         }
 
         .area-card p {
             color: var(--text-muted);
-            font-size: 0.9rem;
+            font-size: 0.82rem;
+            line-height: 1.6;
         }
 
         .status {
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            margin-top: 36px;
+            margin-top: 28px;
             color: var(--text-muted);
-            font-size: 0.9rem;
+            font-size: 0.72rem;
+            letter-spacing: 0.04em;
         }
 
         .status-dot {
-            width: 8px;
-            height: 8px;
+            width: 6px;
+            height: 6px;
             border-radius: 50%;
             background: var(--accent);
-            box-shadow: 0 0 14px rgba(56, 189, 248, 0.75);
+            box-shadow: 0 0 12px rgba(198, 167, 106, 0.7);
         }
 
         .site-footer {
-            min-height: 82px;
+            min-height: 88px;
             display: flex;
             align-items: center;
             justify-content: space-between;
             gap: 20px;
             border-top: 1px solid var(--surface-border);
             color: var(--text-muted);
-            font-size: 0.84rem;
+            font-size: 0.7rem;
+            letter-spacing: 0.05em;
         }
 
         .site-footer strong {
